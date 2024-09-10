@@ -9,8 +9,14 @@ Route::get('/', function () {
 
 //이메일 접수
 Route::post('/subscribe', function (Request $request) {
-    $email = $request->input('email');
-    // 이메일을 처리하는 로직 (예: 데이터베이스 저장 또는 메일 발송)
+    $request->validate([
+        'email' => 'required|email|max:255',
+    ]);    // 이메일을 'emails' 테이블에 저장
 
+    DB::table('emails')->insert([
+        'email' => $request->input('email'),
+        'dt_reg' => now(), // 현재 시간으로 등록 날짜 저장
+    ]);
+    
     return back()->with('success', 'Thank you for subscribing!');
 });
