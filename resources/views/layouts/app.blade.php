@@ -14,7 +14,7 @@
 </head>
 <body class="bg-gray-900 text-white"> <!-- 어두운 배경과 밝은 텍스트 -->
 <nav class="bg-gray-900 text-white sticky top-0 z-50">
-    <div class="container mx-auto flex items-center justify-between py-4 px-6">
+    <div class="container max-w-screen-lg mx-auto flex items-center justify-between py-4 px-6"> <!-- 여기서 max-w 설정 -->
         <!-- Logo Section -->
         <div class="flex items-center space-x-3">
             <img src="/img/evitomplan.jpeg" alt="Logo" class="h-8 w-auto">
@@ -36,7 +36,8 @@
     </div>
 </nav>
 
-<div class="container mx-auto">
+<!-- Main Content -->
+<div class="container max-w-screen-lg mx-auto">
     @yield('content')
 </div>
 </body>
